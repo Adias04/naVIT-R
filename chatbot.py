@@ -14,6 +14,7 @@ def speak(text):
 def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
         print("Speak now...")
         audio = r.listen(source)
     try:
