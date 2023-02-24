@@ -43,7 +43,7 @@ while True:
     choice = listen().lower()
     if "no" in choice:
         speak("Thank you for using our service.")
-        break
+        exit()
 
 
 
