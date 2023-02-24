@@ -1,17 +1,18 @@
 import speech_recognition as sr
-from gtts import gTTS
+import pyttsx3
 import pandas as pd
 
 # load the admission data
 admission_data = pd.read_csv("adm_data.csv")
 
+# initialize text to speech engine
+engine = pyttsx3.init()
+
 # function to convert text to speech
 def speak(text):
-    tts = gTTS(text=text, lang='en')
-    filename = "output.mp3"
-    tts.save(filename)
+    engine.say(text)
+    engine.runAndWait()
     print(text)
-    return filename
 
 # function to convert speech to text
 def listen():
