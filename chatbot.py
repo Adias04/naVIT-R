@@ -1,22 +1,21 @@
 import speech_recognition as sr
-import pygame
-import os
+import pyttsx3
+
+# initialize the text-to-speech engine
+engine = pyttsx3.init()
 
 # function to convert text to speech
 def speak(text):
-    pygame.mixer.init()
-    pygame.mixer.music.load("output.mp3")
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        continue
+    engine.say(text)
+    engine.runAndWait()
 
 # function to convert speech to text
 def listen():
     r = sr.Recognizer()
+    r.energy_threshold = 1000 # adjust as necessary
     with sr.Microphone() as source:
-        r.adjust_for_ambient_noise(source)
         print("Speak now...")
-        audio = r.listen(source)
+        audio = r.listen(source, phrase_time_limit=10) # adjust as necessary
     try:
         text = r.recognize_google(audio)
         print(f"You said: {text}")
@@ -27,13 +26,13 @@ def listen():
 
 # main program loop
 while True:
-    speak("What would you like to search for? Enter 1 for University Prediction or 2 for Faculty Room Information.")
+    speak("What would you like to search for? Say 'University Prediction' or 'Faculty Room Information'.")
     choice = listen().lower()
     
-    if "1" in choice:
+    if "university prediction" in choice:
         import University_prediction
         University_prediction.get_university_ratings_voice()
-    elif "2" in choice:
+    elif "faculty room information" in choice:
         import faculty_details_getter
         faculty_details_getter.get_faculty_details_voice()
     else:
@@ -44,6 +43,7 @@ while True:
     if "no" in choice:
         speak("Thank you for using our service.")
         break
+
 
 
     
