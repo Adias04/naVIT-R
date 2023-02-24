@@ -31,12 +31,13 @@ while True:
     
     if "university prediction" in choice:
         import University_prediction
-        University_prediction.get_university_ratings_voice()
+        University_prediction.admission_service()
     elif "faculty room information" in choice:
         import faculty_details_getter
-        faculty_details_getter.get_faculty_details_voice()
+        faculty_details_getter.run()
     else:
         speak("Sorry, I didn't understand what you said. Please try again.")
+        continue
 
     speak("Do you want to search for something else?")
     choice = listen().lower()
