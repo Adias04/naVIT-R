@@ -2,7 +2,7 @@ import speech_recognition as sr
 import pyttsx3
 import pandas as pd
 
-# load the faculty data
+
 faculty_data = pd.read_csv("Curriculum.csv")
 
 # initialize the text-to-speech engine
