@@ -3,7 +3,7 @@ import pyttsx3
 import pandas as pd
 
 
-faculty_data = pd.read_csv("Curriculum.csv")
+min_credit = pd.read_csv("Curriculum.csv")
 
 # initialize the text-to-speech engine
 engine = pyttsx3.init()
