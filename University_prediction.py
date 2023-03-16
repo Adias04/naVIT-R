@@ -71,6 +71,5 @@ def admission_service():
             speak("Thank you for using our service.")
             break
 
-# call the admission service function
-admission_service()
+
 
