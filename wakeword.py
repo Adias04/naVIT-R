@@ -5,7 +5,7 @@ import subprocess
 import pyttsx3
 
 handle = pvporcupine.create(
-    access_key='jAhJIPDbdOkbpJKt9zF4IWGY2Jt/pF/v5o179vd7kSOQnoj4BNfC/g==',
+    access_key='jAhJIPDbdOkbpJKt9zF4/pF/v5o179vd7kSOQnoj4BNfC/g==',
     keyword_paths=['Hey-navigate-me_en_windows_v2_1_0.ppn']
     
     )
